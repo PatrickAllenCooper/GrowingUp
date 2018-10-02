@@ -1,13 +1,15 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var timeToStorm
+var hydrationModifier = 0
+var stormActivated = true
 
+# for now storm will only occur once until I create loop
 func _ready():
 	var intensity = 10
 	var time = 25
 	var randNum = get_random_number()
+	timeToStorm = randNum * 900
 	print(randNum)
 	
 	
@@ -16,7 +18,22 @@ func get_random_number():
     randomize()
     return randi()%11
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func ReduceStorm():
+	timeToStorm = timeToStorm - 1
+	
+func _process(delta):
+	if stormActivated:
+		ReduceStorm()
+		var start_storm_when = is_storm_occuring()
+		if (start_storm_when):
+			start_storm()
+
+func is_storm_occuring():
+	if timeToStorm < 0:
+		return true
+	else:
+		return false
+		
+func start_storm():
+	hydrationModifier = 10
+	stormActivated = false
