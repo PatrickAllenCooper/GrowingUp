@@ -15,7 +15,7 @@ func _process(delta):
 		var start_storm_when = is_storm_occuring()
 		if (start_storm_when):
 			start_storm()
-			print("STORM IS STARTING")
+			print("DROUGHT IS STARTING")
 			DisplayHyd()
 	
 func HydrateLevel():
@@ -30,5 +30,5 @@ func DisplayHyd():
 	if status <= 0:
 		lost = true
 		print("You've lost! :(")
-		quit()
+		get_tree().quit()
 		return

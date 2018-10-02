@@ -9,7 +9,7 @@ func _ready():
 	var intensity = 10
 	var time = 25
 	var randNum = get_random_number()
-	timeToStorm = randNum * 5000
+	timeToStorm = randNum * 1500
 	
 	
 # here we get a random val.
@@ -30,5 +30,7 @@ func is_storm_occuring():
 		return false
 		
 func start_storm():
-	drop = -300
+	drop = -150
 	stormActivated = false
+	var randNum2 = get_random_number()
+	timeToStorm = randNum2 * 1500
