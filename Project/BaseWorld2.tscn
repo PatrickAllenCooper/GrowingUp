@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://BaseWorld2.gd" type="Script" id=1]
 [ext_resource path="res://TerrainTileSet.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://plant.gd" type="Script" id=7]
 [ext_resource path="res://TileSet2.tres" type="TileSet" id=8]
 [ext_resource path="res://PlantTile.gd" type="Script" id=9]
+[ext_resource path="res://Menu Graphics/Quit Button.png" type="Texture" id=10]
 
 [node name="Node" type="Node" index="0"]
 
@@ -113,5 +114,50 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
 script = ExtResource( 9 )
+
+[node name="Container" type="Container" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 251.0
+margin_top = -448.0
+margin_right = 422.0
+margin_bottom = -351.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloatingQuitButton" type="TextureButton" parent="Container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 152.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 10 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[connection signal="pressed" from="Container/FloatingQuitButton" to="." method="_on_FloatingQuitButton_pressed"]
 
 
