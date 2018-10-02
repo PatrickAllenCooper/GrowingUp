@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Earth.png" type="Texture" id=1]
 [ext_resource path="res://Rock.png" type="Texture" id=2]
 [ext_resource path="res://Sand.png" type="Texture" id=3]
 [ext_resource path="res://Gravel.png" type="Texture" id=4]
+[ext_resource path="res://01.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,7 +26,12 @@ extents = Vector2( 32, 32 )
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="World" type="Node" index="0"]
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="World" type="Node"]
 
 [node name="Earth" type="Sprite" parent="." index="0"]
 
@@ -44,6 +50,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -54,7 +61,6 @@ shape = SubResource( 1 )
 
 [node name="Rock" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 160, 32 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -70,6 +76,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -80,7 +87,6 @@ shape = SubResource( 2 )
 
 [node name="Sand" type="Sprite" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 32, 160 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -106,7 +112,6 @@ shape = SubResource( 3 )
 
 [node name="Gravel" type="Sprite" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( 160, 160 )
 texture = ExtResource( 4 )
 region_enabled = true
@@ -129,5 +134,32 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gravel/Gravel" index="0"]
 
 shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="." index="4"]
+
+position = Vector2( 288, 32 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D" index="0"]
+
+position = Vector2( 0, 1.90735e-006 )
+scale = Vector2( 3.2, 3.2 )
+shape = SubResource( 5 )
 
 
